@@ -39,6 +39,18 @@ handlers:
   script: receive_email.application
   login: admin
 
+- url: /reminderemail
+  script: main.application
+  login: admin
+
+- url: /digestemail
+  script: main.application
+  login: admin
+
+- url: /missedemail
+  script: main.application
+  login: admin
+
 - url: .*
   script: main.application
   secure: always

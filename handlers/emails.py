@@ -52,7 +52,7 @@ class MissedEmail(framework.BaseHandler):
                 all_followers = "no_followers"
                 followers = list()
                 for f in all_users:
-                    if user.email in f.following:
+                    if user.enabled == True and user.email in f.following:
                         followers.append(f.email.split('@')[0])
 
                 if followers:
@@ -187,9 +187,11 @@ class OneDigestEmail(framework.BaseHandler):
         if body:
             following_users = [u.encode('UTF8') for u in user.following]
             missing = set()
-            for u in following_users:
-                if u not in submitted_users(d):
-                    missing.add(u.split('@')[0])
+            desired_user = user_from_email(u)
+            if desired_user.enabled == True:
+                for u in following_users:
+                    if u not in submitted_users(d):
+                        missing.add(u.split('@')[0])
             title = 'For the week of %s\n%s' % (d, '-' * 50)
             if missing:
                 title += '\nNo snippets from: %s' % (", ".join(missing))

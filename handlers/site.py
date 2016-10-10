@@ -143,7 +143,7 @@ class MainHandler(framework.BaseHandler):
 
 
         # Fetch user list and display
-        raw_users = User.all().order('email').fetch(500)
+        raw_users = User.all().filter("enabled", True).order('email').fetch(500)
         following = compute_following(user, raw_users)
         all_users = [(u, u.email in following) for u in raw_users]
         all_tags = set()

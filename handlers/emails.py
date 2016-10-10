@@ -187,9 +187,9 @@ class OneDigestEmail(framework.BaseHandler):
         if body:
             following_users = [u.encode('UTF8') for u in user.following]
             missing = set()
-            desired_user = user_from_email(u)
-            if desired_user.enabled == True:
-                for u in following_users:
+            for u in following_users:
+                desired_user = user_from_email(u)
+                if desired_user.enabled == True:
                     if u not in submitted_users(d):
                         missing.add(u.split('@')[0])
             title = 'For the week of %s\n%s' % (d, '-' * 50)

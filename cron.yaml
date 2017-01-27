@@ -1,17 +1,1 @@
 cron:
-- description: weekly missed 
-  url: /missedemail
-  schedule: every tuesday 10:00
-  timezone: America/New_York
-- description: final reminder
-  url: /reminderemail?final=true
-  schedule: every monday 9:00
-  timezone: America/New_York
-- description: weekly reminder
-  url: /reminderemail
-  schedule: every friday 12:00
-  timezone: America/New_York
-- description: weekly digest
-  url: /digestemail
-  schedule: every monday 19:00
-  timezone: America/New_York

@@ -3,6 +3,12 @@
 {% block title %}Welcome{% endblock %}
 {% block body %}
     <div class="row">
+      <div class="alert alert-danger">
+          <strong>Discontinued!</strong> Blurbs is the new Snippets. <a
+           href="http://blurbs.betterment.com/">Use it instead &rarr;</a>
+          action.
+      </div>
+      
         <div class="col-md-12">
            <h1>Welcome back, <a href="/user/{{ current_user.email }}">{{ current_user.pretty_name }}</a></h1>
             New to Snippets? <a target="_blank" href="{{learn_more}}">Learn more
